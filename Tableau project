@@ -1,0 +1,51 @@
+#  Airbnb – Tableau Dashboard
+
+## Project Objective
+Create a beginner-friendly yet portfolio-ready **Tableau dashboard** using the Seattle Airbnb dataset to help a prospective host decide **where** to buy, **when** to list, and **what** property size (bedrooms) could maximize returns.
+
+---
+
+## Dataset Used
+- **Source:** Seattle Airbnb Open Data (listings, calendar, reviews)  
+- **Working file:** 
+<a href="https://insideairbnb.com/get-the-data/">Dataset</a>
+
+## Key Questions (KPIs)
+- **Which ZIP codes** command the highest **average nightly price**?
+- **Where are those ZIPs on a map** (spatial context)?
+- **When do prices peak** across the year (weekly seasonality)?
+- **How does average price vary by bedrooms**?
+- **How crowded is each bedroom segment** (distinct listing count by bedrooms)?
+
+**Interactive Dashboard:**   
+- [Screenshot (495)](https://github.com/adityapujari98-sketch/Tableau-PowerBI-Projects/blob/main/Tableau%20Airbnb.png)  
+- Tableau Public (optional): <a href="https://public.tableau.com/app/profile/aditya.pujari4885/viz/AirBNBFullProject_17615898455710/Dashboard1?publish=yes">View Dashboard</a>
+
+## Process
+
+### Data Preparation & Joins (Tableau Data Source)
+- Imported Excel with 3 sheets: **Listings**, **Calendar**, **Reviews**.
+- Set relationships/joins:
+  - `Listings.id` **=** `Calendar.listing_id` (**Inner Join**)  
+  - `Listings.id` **=** `Reviews.listing_id` (**Inner Join**, **optional**)  
+- Note: Tableau Public caps at **15M rows**. If you exceed the limit, **exclude Reviews** (used only for demo joins) and/or **filter Calendar to Year = 2016**.
+
+### Cleaning & Typing
+- Converted **bedrooms** to a **dimension** (categorical axis) when needed.
+- Used **Average** for price aggregations; **Distinct Count** for listings.
+- Excluded **NULL/0-bedroom** rows in bedroom visuals.
+- Ensured consistent **ZIP code** usage across bar and map for aligned colors.
+
+### Dashboard Assembly
+- New **Dashboard (Automatic size)** → placed sheets in a 2×3 layout:
+  - Top: Price by ZIP (left) + ZIP Map (right)
+  - Middle: Weekly Trend (full width)
+  - Bottom: Avg Price by Bedrooms (left) + Listings by Bedrooms (right)
+- Enabled relevant legends, tidy titles, and applied a simple color theme.
+
+## Insights (from this build)
+- **High-priced ZIPs** cluster in specific neighborhoods (see map for quick context).  
+- **Seasonality:** Prices dip in **Jan–Feb**, peak in **summer** and **holidays**.  
+- **Bedrooms:** 5–6 bedroom properties show meaningfully **higher avg nightly price**, while **1-bedroom** dominates **supply** (more competition).  
+
+
